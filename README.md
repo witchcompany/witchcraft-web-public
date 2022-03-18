@@ -1,2 +1,2 @@
 # witchcraft-web-public
-공개용
+witchcraft-web-public

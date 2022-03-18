@@ -1,0 +1,123 @@
+@import '../static/css/common.scss';
+
+.footer {
+  padding-top: 88px;
+  background: $gray900;
+
+  @media (max-width:630px) {
+    padding-top: 42px;
+  }
+
+  .inner {
+    position: relative;
+    @include flexBox(flex, space-between, center);
+    gap:64px;
+    max-width: 1024px;
+    margin: 0 auto 120px;
+
+    @media (max-width:1200px) {
+      padding: 0 48px;
+    }
+
+    @media (max-width:630px) {
+      padding: 0 24px;
+      flex-direction: column;
+      gap:40px;
+      margin: 0 auto 60px;
+    }
+
+
+    .left{
+      width: calc(60% - 64px);
+
+      @media (max-width:630px) {
+        width: 100%;
+      }
+
+      .slogan {
+        margin-bottom: 72px;
+        @include font30;
+        @include interBold;
+
+        @media (max-width:630px) {
+          margin-bottom: 24px;
+          @include font20;
+        }
+
+        p{
+          background: linear-gradient(90deg, #995AFF 0%, #FF63AE 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      .sns {
+
+        a{
+          display: inline-block;
+          margin-right: 30px;
+        }
+        .discord {
+          @include logo_discord_28px;
+        }
+
+        .twitter {
+          @include logo_twitter_28px;
+        }
+
+        .instagram {
+          @include logo_instagram_28px;
+        }
+
+        .medium {
+          @include logo_medium_28px;
+        }
+      }
+    }
+
+    .right{
+      width: calc(40% - 56px);
+
+      @media (max-width:630px) {
+        width: 100%;
+      }
+
+
+      .link {
+        @include flexBox(flex, space-between, flex-start);
+
+        li{
+          flex:1;
+        }
+        a {
+          display: block;
+          margin-bottom: 24px;
+          color: $gray300;
+        }
+
+        .icon {
+          @include arrow_top_right_16px;
+          vertical-align: middle;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    border-top: 1px solid $gray700;
+    color: $gray700;
+    margin-top: 120px;
+    padding: 28px 8px;
+    @include font14;
+    text-align: center;
+
+    span {
+      margin-right: 16px;
+    }
+
+    @media (max-width:630px) {
+      margin-top: 80px;
+    }
+  }
+}

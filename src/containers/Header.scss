@@ -1,0 +1,430 @@
+@import '../static/css/common.scss';
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  margin: 0 auto;
+  background: #000;
+  z-index: 10000;
+
+  .inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding:0 24px;
+    text-align: center;
+  }
+
+  .topArea {
+    @include flexBox(flex, space-between, center);
+    width: 100%;
+    height: 64px;
+  }
+
+  .logoArea {
+    z-index: 100;
+
+    .logo {
+      display: inline-block;
+      width: 107.66px;
+      height: 25px;
+      background: url('https://wcraft.s3.ap-northeast-2.amazonaws.com/images/logo_wcraft_v1.svg') no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .chooseLanguage{
+    cursor: pointer;
+    @include flexBox(flex, center, center);
+    margin-right: 24px;
+
+    @media (max-width:630px) {
+      margin-right: 0;
+    }
+
+    .language{
+      color:$gray700;
+      font-family: 'Inter';
+      font-weight: 500;
+      cursor: pointer;
+
+      &:first-child:after {
+        display: inline-block;
+        content: '';
+        width: 1px;
+        height: 12px;
+        background:$gray700;
+        margin: 0 10px;
+      }
+
+      &.on{
+        color:$gray100;
+      }
+    }
+  }
+
+  .loginBtn {
+    float: right;
+    background: #fff;
+    padding: 8px 10px;
+    font-weight: 700;
+    @include font12;
+    color: $gray900;
+    text-align: center;
+    border-radius: 40px;
+    cursor: pointer;
+
+    .google{
+      display: inline-block;
+      margin-right: 8px;
+      background-size: 16px;
+    }
+  }
+
+  .authArea {
+    @include flexBox(flex, center,center);
+    z-index: 100;
+
+    .user {
+      // margin-right: 6.4vw;
+
+      .witArea {
+        display: inline-block;
+        padding: 1.6vw 2.133vw;
+        border-radius: 40px;
+        background: $gray800;
+        font-weight: 500;
+        font-size: 3.734vw;
+        color: #fff;
+        vertical-align: middle;
+
+        .addWit {
+          @include plusCircle_w_16px;
+          margin-left: 3vw;
+          vertical-align: -0.75vw;
+        }
+      }
+
+      .profile {
+        display:inline-block;
+        margin-left: 1.02vw;
+        vertical-align: top;
+        cursor: pointer;
+
+        img {
+          width: 7.467vw;
+          height: 7.467vw;
+          border-radius: 40px;
+        }
+
+        &:hover{
+          .pcMenu{
+            top:64px;
+            transition: opacity .5s ease-in-out;
+            opacity:1;
+          }
+        }
+
+        .pcMenu {
+          @include flexBox(flex, center, center);
+          flex-direction: column;
+          position: absolute;
+          top:-100px;
+          right:0;
+          width: 140px;
+          height: 120px;
+          background: $gray900;
+          opacity: 0;
+          border-radius: 0 0 16px 16px;
+
+          &:after   {
+            content: '';
+            padding: 1em;
+            position: absolute;
+            right: 0;
+            top: -31px;
+            width: 110px;
+          }
+
+          li {
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: color .2s ease-in-out;
+
+            &:last-child{
+              color:$red;
+
+              &:hover{
+                color:$gray700;
+              }
+            }
+
+            &:hover{
+              color:$purple;
+            }
+          }
+        }
+
+      }
+    }
+
+    .memberSetting {
+      position: absolute;
+      top: 46px;
+      right: 14px;
+      padding: 8px 4px 10px;
+      border-radius: 8px;
+      background: #fff;
+      text-align: left;
+
+      .selected {
+        width: 136px;
+        margin: 4px 8px 10px;
+        @include font14;
+        background: url('https://wcraft.s3.ap-northeast-2.amazonaws.com/images/icon_arrow_up.svg') no-repeat 100% 4px;
+        background-size: contain;
+        color: #171716;
+
+        .global {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 4px;
+          background: url('https://wcraft.s3.ap-northeast-2.amazonaws.com/images/icon_global.svg') no-repeat;
+          background-size: contain;
+          vertical-align: -2.5px;
+        }
+      }
+
+      .item {
+        margin: 4px 8px;
+        @include font14;
+        color: #171716;
+        cursor: pointer;
+
+        &.on {
+          background: url('https://wcraft.s3.ap-northeast-2.amazonaws.com/images/icon_check.svg') no-repeat 100% 4px;
+          background-size: contain;
+        }
+      }
+
+      .menu {
+        margin-top: 12px;
+        padding: 8px 8px 0;
+        border-top: 1px solid $gray400;
+        @include font14;
+        color: $gray700;
+        cursor: pointer;
+      }
+    }
+
+
+    .loginBtn {
+      padding: 8px 10px;
+      @include font12;
+      cursor: pointer;
+    }
+
+    .user {
+
+      .witArea {
+        padding: 6px 8px;
+        @include font14;
+
+        .addWit {
+          margin-left: 10px;
+          vertical-align: middle;
+        }
+      }
+
+      .profile {
+        margin-left: 10px;
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+
+  }
+
+  .mMenu{
+    @include flexBox(flex,center,center);
+    @include font16;
+    padding: 3% 0 3% 3%;
+
+    .icon{
+      width: 24px;
+      height: 16px;
+      cursor: pointer;
+      z-index: 999;
+
+      span{
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: $gray100;
+        transition: transform 0.5s ease-in-out;
+
+        &:nth-child(2){
+          margin: 5px 0;
+          opacity: 1;
+          
+        }
+      }
+
+
+      &.iconX{
+        position: relative;
+        padding: 3% 0 3% 3%;
+
+        span{
+          position: absolute;
+          left: 0;
+          top:0;
+          margin-top: 5px;
+          transform: rotate(45deg);
+          color:red;
+
+          &:nth-child(2){
+            display: none;
+            transition: display 0.5s ease-in-out;
+          }
+          &:nth-child(3){
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+    }
+
+    .hide{
+      @include flexBox(flex, center, center);
+      flex-direction: column;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      right: -100%;
+      top:0;
+      background: rgb(0,0,0);
+      opacity: 0;
+
+      &.show{
+        right: 0;
+        opacity: 1;
+      }
+
+      .navTop{
+        @include font16;
+        margin-top: -11em;
+
+        a{
+          color:$gray100;
+        }
+        li:nth-child(2){
+          margin:36px 0;
+        }
+      }
+
+      .googleLoginBtn {
+        @extend .loginBtn;
+        padding: 1em 2em;
+      }
+
+      .navBottom{
+        position: absolute;
+        bottom:60px;
+
+        .logoutBtn{
+          margin-bottom: 24px;
+          color: $red;
+        }
+
+        .sns{
+          @include flexBox(flex, center, center);
+          margin-top: 30px;
+
+          a{
+            display: inline-block;
+            margin-right: 24px;
+          }
+
+          .discord {
+            @include logo_discord_28px;
+          }
+
+          .twitter {
+            @include logo_twitter_28px;
+          }
+
+          .instagram {
+            @include logo_instagram_28px;
+          }
+
+          .medium {
+            @include logo_medium_28px;
+          }
+        }
+      }
+    }
+  }
+
+  .menuArea {
+    position: relative;
+    padding: 0 0.8vw;
+
+    a {
+      display: inline-block;
+      margin: 0 4.27vw;
+      padding: 1.6vw 0;
+      border-bottom: 2px solid #000;
+      @include interBold;
+      font-size: 4.27vw;
+      color: #fff;
+
+      &.active {
+        border-bottom-color: $purple;
+      }
+    }
+
+    @include desktop {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      margin-left: -244px;
+      padding: 0;
+      z-index: 200;
+
+      a {
+        margin: 0 32px;
+        padding: 6px 2px 18px;
+        @include font16;
+        color: #fff;
+      }
+    }
+  }
+
+
+}
+
+.historyBack {
+  @include flexBox(flex,flex-start, center);
+  width: 100%;
+  height: 54px;
+  padding:0 24px;
+  color: #fff;
+  text-align: left;
+  background: #000;
+
+  .back {
+    @include arrow_left_w_24px;
+    margin-right: 20px;
+    vertical-align: -1.5vw;
+  }
+}
